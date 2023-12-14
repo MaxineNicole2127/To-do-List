@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400');
+
+* {
+  font-family: "Poppins";
+  font-weight: 500;
+}
+
+body {
+  margin: 50px;
+}
+
+#header-title {
+  font-family: "Rockwell";
+  font-weight: 700;
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+
+#entire-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* INPUT FORM */
+
+
+.input-form {
+  margin-bottom: 20px;
+  display: flex;
+  /* position: relative; */
+  justify-content: center;
+  min-width: 400px;
+  /* padding: 10px 8px; */
+  border: 1px solid rgba(0,0,0,0.5);
+  border-radius: 50px;
+  overflow: hidden;
+  /* padding: 5px; */
+  /* border: 1px solid black; */
+}
+
+#input-box {
+  background-color: transparent;
+  min-width: 305px;
+  padding: 5px 23px;
+  border: none;
+}
+
+.input-form:hover {
+  box-shadow: -0.5px -0.5px 5px -1px rgba(0,0,0,0.38);
+}
+
+#input-box:focus {
+  outline: none;
+  box-shadow: none;
+  /* box-shadow: -3px -1px 29px -9px rgba(0,0,0,0.38); */
+  /* box-shadow: 1px 1px 5px 3px rgba(0,0,0,0.38); */
+}
+
+.input-form #submit-task-button {
+  padding: 7px 40px;
+  height: 100%;
+  color: white;
+  font-weight: 700;
+  border: none;
+  font-size: 17px;
+  background-color: #255C99;
+  border-radius: 17px;
+  transition: background-color 0.2s ease;
+}
+
+.input-form #submit-task-button:hover {
+  background-color: #4f73c1;
+}
+
+
+/* TASK LIST */
+
+.task-line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tasks {
+  /* border: 1px solid black; */
+  min-width: 300px;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tasks li {
+  user-select: none;
+  list-style-type: none;
+  position: relative;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* border: 1px solid black; */
+}
+
+.task-line #close-mark {
+  color: #bab6b6;
+  cursor: pointer;
+}
+
+.task-line #close-mark:hover {
+  color: #255C99;
+} 
+
+
+.tasks li:hover {
+  cursor: pointer;
+  color: #2b52a7;
+}
+
+.tasks li::before {
+  content: "";
+  /* background-image: url("./images/circle.png"); */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 2px; left: -35px;
+  border: 1px solid black;
+  border-radius: 50%;
+  width: 20px; height: 20px;
+}
+
+.tasks .done {
+  text-decoration: line-through;
+}
+
+.tasks li.done::before {
+  content: "";
+  background-image: url("./images/circle-check.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 2px; left: -35px;
+  border: 1px solid black;
+  border-radius: 50%;
+  width: 20px; height: 20px;
+}
+
