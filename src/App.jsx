@@ -13,8 +13,8 @@ function App() {
   }
 
   const [tasks, setTasks] = useState([
-    { "task": "Feed Cleo", "done": false},
-    { "task": "Take a bath", "done": false},
+    { id: 0, "desc": "Feed Cleo", "done": false},
+    { id: 1, "desc": "Take a bath", "done": false},
   ]);
 
   const addTask = () => {
@@ -22,7 +22,8 @@ function App() {
       alert("You cannot input an empty task!");
     else {
       const newTask = {
-        "task" : userInput,
+        id : tasks.length,
+        "desc" : userInput,
         "done" : false
       }
       const newTasks = [...tasks, newTask];
@@ -34,16 +35,25 @@ function App() {
   const toggleTask = (event) => {
       const taskToToggle = event.target.innerText;
       // create a new array
-      const updatedTasks = tasks.map (task => task.task === taskToToggle ? {...task, done : !task.done} : task );
+      const updatedTasks = tasks.map (task => task.desc === taskToToggle ? {...task, done : !task.done} : task );
       // update value of the previous array 
       setTasks(updatedTasks);
   }
+
+  const handleDeleteMark = (event) => {
+    const closeElement = event.target;
+    const itemElement = (closeElement.parentNode).querySelector("li");
+    console.log(itemElement);
+
+    const newTaskList = tasks.filter(task => { return task.id !== parseInt(itemElement.id) ;})
+    setTasks(newTaskList);
+}
 
   return (
     <div className="container" id="entire-page">
       <Header />
       <Input_Box userInput = {userInput} changeVal = {changeVal} addTask = {addTask}/>
-      <Tasks tasks={tasks} toggleTask={toggleTask}/>
+      <Tasks tasks={tasks} toggleTask={toggleTask} handleDeleteMark={handleDeleteMark}/>
     </div>
   )
 }
