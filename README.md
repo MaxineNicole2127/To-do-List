@@ -7,4 +7,5 @@ Will continuously add features as I learn more.
 1. User can create task
 2. User can delete task
 3. User can mark a task as accomplished
-4. Simple UI Interface
+4. Saves tasks to local storage
+5. Simple UI Interface
