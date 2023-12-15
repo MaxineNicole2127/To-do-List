@@ -2,7 +2,7 @@ import Header from "./Header";
 import Input_Box from "./Input_Box";
 import Tasks from "./Tasks";
 import './App.css'
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 
 function App() {
   const [userInput, setUserInput] = useState("");
@@ -12,9 +12,9 @@ function App() {
       console.log(newTaskInput);
   }
 
-  const [tasks, setTasks] = useState([
+  const [tasks, setTasks] = useState(JSON.parse(localStorage.getItem('tasks')) || [
     { id: 0, "desc": "Feed Cleo", "done": false},
-    { id: 1, "desc": "Take a bath", "done": false},
+    { id: 1, "desc": "Study ReactJS", "done": false},
   ]);
 
   const addTask = () => {
@@ -31,6 +31,10 @@ function App() {
       setUserInput("");
     }
   }
+
+  useEffect(() => {
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+  })
 
   const toggleTask = (event) => {
       const taskToToggle = event.target.innerText;
